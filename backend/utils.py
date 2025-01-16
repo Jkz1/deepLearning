@@ -165,7 +165,17 @@ def do_detection():
     }
     return response
 
+def create_directory(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+        print(f"Directory '{path}' created successfully.")
+    else:
+        print(f"Directory '{path}' already exists.")
+
 def execute():
+    create_directory('processed_images')
+    create_directory('final_images')
+    create_directory('cropped_images')
     # Menggunakan fungsi-fungsi di atas
     img = load_image('image.png')
     gray = convert_to_grayscale(img)
